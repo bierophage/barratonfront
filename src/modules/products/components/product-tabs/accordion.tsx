@@ -45,7 +45,7 @@ const Item: React.FC<AccordionItemProps> = ({
   ...props
 }) => {
   return (
-    /* @ts-expect-error */
+    /* @ts-expect-error Server Component */
     <AccordionPrimitive.Item
       {...props}
       className={clx(
@@ -54,7 +54,6 @@ const Item: React.FC<AccordionItemProps> = ({
         className
       )}
     >
-      /* @ts-expect-error */
       <AccordionPrimitive.Header className="px-1">
         <div className="flex flex-col">
           <div className="flex w-full items-center justify-between">
