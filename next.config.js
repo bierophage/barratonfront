@@ -4,10 +4,13 @@ const ContentSecurityPolicy = `font-src 'self' js.stripe.com`;
 
 
 const cspHeader = `
+    default-src 'self';
     img-src 'https://*.stripe.com';
     script-src 'https://checkout.stripe.com';
     frame-src 'https://checkout.stripe.com';
     connect-src 'https://checkout.stripe.com';
+    script-src 'self' 'unsafe-inline' 'unsafe-eval';
+    style-src 'self' 'unsafe-inline' 'unsafe-eval';
 `
 
 /**
