@@ -5,11 +5,11 @@ const ContentSecurityPolicy = `font-src 'self' js.stripe.com`;
 
 const cspHeader = `
     default-src 'self';
-    script-src 'self' 'unsafe-eval' 'unsafe-inline' 'https://*.stripe.com' 'https://checkout.stripe.com' 'https://js.stripe.com' 'https://m.stripe.network';
+    script-src 'self' 'unsafe-eval' 'unsafe-inline' 'https://maps.googleapis.com' 'https://*.stripe.com' 'https://connect-js.stripe.com' 'https://checkout.stripe.com' 'https://js.stripe.com' 'https://m.stripe.network';
     style-src 'self' 'unsafe-inline';
     img-src 'self' 'https://*.stripe.com';
-    frame-src 'https://checkout.stripe.com';
-    connect-src 'https://checkout.stripe.com'
+    frame-src 'https://checkout.stripe.com' 'https://connect-js.stripe.com' 'https://js.stripe.com' 'https://hooks.stripe.com';
+    connect-src 'https://checkout.stripe.com' 'https://api.stripe.com' 'https://maps.googleapis.com';
 `
 
 /**
