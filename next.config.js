@@ -1,5 +1,14 @@
 const { withStoreConfig } = require("./store-config")
 const store = require("./store.config.json")
+const ContentSecurityPolicy = `font-src 'self' js.stripe.com`;
+
+
+const cspHeader = `
+    img-src 'https://*.stripe.com';
+    script-src 'https://checkout.stripe.com';
+    frame-src 'https://checkout.stripe.com';
+    connect-src 'https://checkout.stripe.com';
+`
 
 /**
  * @type {import('next').NextConfig}
@@ -28,6 +37,7 @@ const nextConfig = withStoreConfig({
     ],
   },
 })
+
 
 console.log("next.config.js", JSON.stringify(module.exports, null, 2))
 
