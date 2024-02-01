@@ -5,7 +5,7 @@ const ContentSecurityPolicy = `font-src 'self' js.stripe.com`;
 
 const cspHeader = `
     default-src 'self';
-    script-src 'self' 'unsafe-eval' 'unsafe-inline' 'https://checkout.stripe.com';
+    script-src 'self' 'unsafe-eval' 'unsafe-inline' 'https://checkout.stripe.com' 'https://js.stripe.com';
     style-src 'self' 'unsafe-inline';
     img-src 'self' 'https://*.stripe.com';
     frame-src 'https://checkout.stripe.com';
