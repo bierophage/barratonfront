@@ -5,12 +5,10 @@ const ContentSecurityPolicy = `font-src 'self' js.stripe.com`;
 
 const cspHeader = `
     default-src 'self';
-    img-src 'https://*.stripe.com';
-    script-src 'https://checkout.stripe.com';
+    script-src 'self' 'unsafe-eval' 'unsafe-inline' 'https://checkout.stripe.com';
+    style-src 'self' 'unsafe-inline';
+    img-src 'self' 'https://*.stripe.com';
     frame-src 'https://checkout.stripe.com';
-    connect-src 'https://checkout.stripe.com';
-    script-src 'self' 'unsafe-inline' 'unsafe-eval';
-    style-src 'self' 'unsafe-inline' 'unsafe-eval';
 `
 
 /**
@@ -19,7 +17,19 @@ const cspHeader = `
 const nextConfig = withStoreConfig({
   features: store.features,
   reactStrictMode: true,
-  cspHeader,
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'Content-Security-Policy',
+            value: cspHeader.replace(/\n/g, ''),
+          },
+        ],
+      },
+    ]
+  },
   images: {
     remotePatterns: [
       {
