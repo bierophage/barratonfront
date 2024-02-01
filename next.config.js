@@ -19,6 +19,7 @@ const cspHeader = `
 const nextConfig = withStoreConfig({
   features: store.features,
   reactStrictMode: true,
+  cspHeader,
   images: {
     remotePatterns: [
       {
